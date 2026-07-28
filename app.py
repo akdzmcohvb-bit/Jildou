@@ -43,7 +43,7 @@ if st.session_state.ingelogd == False:
     antwoord = st.text_input("Hoi Jildou eerst een wachtwoord, wat is je favo dier?").lower().strip()
     
     if st.button("Controleren"):
-        if antwoord == "alpaca":
+        if antwoord == "kwibus":
             st.success("GOED, je bent het echt! Je wordt nu doorgestuurd naar de volgende pagina.")
             st.session_state.ingelogd = True
             st.rerun() # Ververs de pagina om direct naar pagina 2 te gaan
