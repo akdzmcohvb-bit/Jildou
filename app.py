@@ -10,6 +10,12 @@ verberg_streamlit_stijl = """
             footer {visibility: hidden;}
             header {visibility: hidden;}
             [data-testid="stToolbar"] {visibility: hidden;}
+            
+            /* Dit verwijdert specifiek de balk rechtsonderin (Streamlit Cloud badge) */
+            div[data-testid="stStatusWidget"] {display: none !important;}
+            footer {display: none !important;}
+            .viewerBadge_link__jUW_as {display: none !important;}
+            iframe[title="Sign in with Google Button"] {display: none !important;}
             </style>
             """
 st.markdown(verberg_streamlit_stijl, unsafe_allow_html=True)
