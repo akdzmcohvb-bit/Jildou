@@ -4,6 +4,20 @@ import streamlit as st
 # Pagina-instellingen voor de browser (mag maar 1x bovenaan!)
 st.set_page_config(page_title="Voor Jildou 🦙", page_icon="🔒")
 
+verberg_streamlit_stijl = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            [data-testid="stToolbar"] {visibility: hidden;}
+            </style>
+            """
+st.markdown(verberg_streamlit_stijl, unsafe_allow_html=True)
+
+# 1. Onthouden of Jildou al is ingelogd
+if "ingelogd" not in st.session_state:
+    st.session_state.ingelogd = False
+
 # 1. Onthouden of Jildou al is ingelogd
 if "ingelogd" not in st.session_state:
     st.session_state.ingelogd = False
