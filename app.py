@@ -1,7 +1,7 @@
 import random
 import streamlit as st
 
-# Pagina-instellingen voor de browser
+# Pagina-instellingen voor de browser (mag maar 1x bovenaan!)
 st.set_page_config(page_title="Voor Jildou 🦙", page_icon="🔒")
 
 # 1. Onthouden of Jildou al is ingelogd
@@ -34,25 +34,6 @@ else:
         st.balloons()
         st.session_state.ballonnen_getoond = True
 
-    st.title("🎉 Welkom op de volgende pagina!")import random
-import streamlit as st
-
-# Pagina-instellingen voor de browser
-st.set_page_config(page_title="Voor Jildou 🦙", page_icon="🔒")
-
-# 1. Onthouden of Jildou al is ingelogd
-if "ingelogd" not in st.session_state:
-    st.session_state.ingelogd = False
-
-# =====================================================================
-# PAGINA 1: De Wachtwoordpoort
-# =====================================================================
-else:
-    # Als ze net binnenkomt, vliegen er ballonnen over het scherm!
-    if "ballonnen_getoond" not in st.session_state:
-        st.balloons()
-        st.session_state.ballonnen_getoond = True
-
     st.title("🎉 Welkom op de volgende pagina!")
     st.write("Je bent succesvol ingelogd, Jildou. Kies hieronder wat je wilt doen:")
     
@@ -64,7 +45,6 @@ else:
 
     with kol1:
         if st.button("🥰 Complimentje krijgen"):
-            # Dit verschijnt onder de knoppen als ze klikt
             st.session_state.actie = "compliment"
 
     with kol2:
@@ -74,7 +54,7 @@ else:
     with kol3:
         if st.button("🚪 Uitloggen / Afsluiten"):
             st.session_state.ingelogd = False
-            # We wissen de ballonnen-status voor de volgende keer
+            # We wissen de status voor de volgende keer
             del st.session_state.ballonnen_getoond
             if "actie" in st.session_state:
                 del st.session_state.actie
@@ -85,7 +65,6 @@ else:
         st.markdown("---")
         
         if st.session_state.actie == "compliment":
-            # st.write() is altijd perfect leesbaar op elk scherm!
             st.write("### 🥰 Complimentje!")
             st.write("Je bent de allerknapste vrouw allertijden!! ✨")
 
