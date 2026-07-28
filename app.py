@@ -4,6 +4,7 @@ import streamlit as st
 # Pagina-instellingen voor de browser (mag maar 1x bovenaan!)
 st.set_page_config(page_title="Voor Jildou 🦙", page_icon="🔒")
 
+# Dit blok CSS verbergt nu écht alle menu's, logo's én de rode cloud-balk onderin
 verberg_streamlit_stijl = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -11,14 +12,18 @@ verberg_streamlit_stijl = """
             header {visibility: hidden;}
             [data-testid="stToolbar"] {visibility: hidden;}
             
-            /* Dit verwijdert specifiek de balk rechtsonderin (Streamlit Cloud badge) */
-            div[data-testid="stStatusWidget"] {display: none !important;}
+            /* Dit pakt de specifieke code van de rode 'Hosted with Streamlit' knop aan */
+            [data-testid="stStatusWidget"] {display: none !important; visibility: hidden !important;}
             footer {display: none !important;}
-            .viewerBadge_link__jUW_as {display: none !important;}
-            iframe[title="Sign in with Google Button"] {display: none !important;}
+            div[class^="viewerBadge"] {display: none !important;}
+            button[title="View source"] {display: none !important;}
+            
+            /* Extra beveiliging voor mobiele telefoons */
+            .stApp > header {display: none !important;}
             </style>
             """
 st.markdown(verberg_streamlit_stijl, unsafe_allow_html=True)
+
 
 # 1. Onthouden of Jildou al is ingelogd
 if "ingelogd" not in st.session_state:
